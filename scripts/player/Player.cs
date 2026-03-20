@@ -2,7 +2,7 @@ using Godot;
 
 public partial class Player : CharacterBody3D
 {
-    [Export] public float Speed = 4f;
+    [Export] public float Speed = 5f;
     [Export] public float SprintSpeed = 6f;
     [Export] public float JumpVelocity = 4.5f;
     [Export] public float MouseSensitivity = 0.002f;
