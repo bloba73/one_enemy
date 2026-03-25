@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 public partial class Player : CharacterBody3D
@@ -5,6 +6,7 @@ public partial class Player : CharacterBody3D
     [Export] public float Speed = 6f;
     [Export] public float JumpVelocity = 5f;
     [Export] public float MouseSensitivity = 0.002f;
+    [Export] public int Health = 100;
 
     public bool AirControl = true;
 
@@ -17,7 +19,7 @@ public partial class Player : CharacterBody3D
     public float baseFov;
     public float DashFovBonus = 8f;
     public float FovSpeed = 12.5f;
- 
+
     public float Acceleration = 15f;
     public float Deceleration = 17f;
 
@@ -103,6 +105,17 @@ public partial class Player : CharacterBody3D
             targetTilt = -localX * WalkTiltAmount;
         }
 
+        if (Input.IsActionJustPressed("damage"))
+        {
+            Health -= 10;
+            GD.Print($"Health: {Health}");
+
+            if (Health < 0)
+            {
+                System.Environment.FailFast("Health < 0");
+            }
+        }
+
         switch (currentState)
         {
             case PlayerState.Dash:
@@ -121,8 +134,10 @@ public partial class Player : CharacterBody3D
         camera.Fov = currentFov;
 
         head.Rotation = new Vector3(cameraRotationX, 0, currentTilt);
-        
+
         MoveAndSlide();
+
+
     }
 
     private void HandleDash(float d)
@@ -139,10 +154,10 @@ public partial class Player : CharacterBody3D
         {
             currentState = PlayerState.Normal;
             targetFov = baseFov;
-        }  
+        }
     }
 
-        private void HandleGravity(float d)
+    private void HandleGravity(float d)
     {
         if (!IsOnFloor())
             Velocity = new Vector3(Velocity.X, Velocity.Y - gravity * d, Velocity.Z);

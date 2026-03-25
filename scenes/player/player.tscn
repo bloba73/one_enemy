@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bc70llr5u7qyf"]
 
 [ext_resource type="Script" uid="uid://1pq4hsukn7c0" path="res://scripts/player/Player.cs" id="1_8afob"]
+[ext_resource type="Script" uid="uid://c4q6cuu0x4jpe" path="res://scripts/player/HUD.cs" id="2_dovo2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x7p2l"]
 
@@ -22,3 +23,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1135990694]
 fov = 90.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1315367176]
+script = ExtResource("2_dovo2")
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=207701800]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=1684083071]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 613.0
+offset_right = 354.0
+offset_bottom = 690.0
+horizontal_alignment = 1
