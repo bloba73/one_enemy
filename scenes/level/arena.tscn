@@ -1,20 +1,23 @@
 [gd_scene format=3 uid="uid://bmsssshcmnmwk"]
 
+[ext_resource type="Texture2D" uid="uid://c2c4db6ojfxn" path="res://assets/sky/lonely_road_afternoon_puresky_4k.hdr" id="1_3k3jw"]
 [ext_resource type="PackedScene" uid="uid://bc70llr5u7qyf" path="res://scenes/player/player.tscn" id="1_rvot1"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rvot1"]
-sky_top_color = Color(0.378687, 0.45217252, 0.57311565, 1)
-sky_horizon_color = Color(0.65984774, 0.67046916, 0.69170487, 1)
-ground_horizon_color = Color(0.65984774, 0.67046916, 0.69170487, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xvrx0"]
+panorama = ExtResource("1_3k3jw")
+energy_multiplier = 0.15
 
 [sub_resource type="Sky" id="Sky_3k3jw"]
-sky_material = SubResource("ProceduralSkyMaterial_rvot1")
+sky_material = SubResource("PanoramaSkyMaterial_xvrx0")
 
 [sub_resource type="Environment" id="Environment_xvrx0"]
 background_mode = 2
 sky = SubResource("Sky_3k3jw")
 tonemap_mode = 2
-glow_enabled = true
+tonemap_exposure = 1.5
+tonemap_white = 3.0
+ssao_enabled = true
+sdfgi_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvot1"]
 albedo_color = Color(0.33766866, 0.25721365, 0.07221704, 1)
@@ -27,20 +30,21 @@ albedo_color = Color(0.18067908, 0.3321333, 0.15615672, 1)
 
 [node name="arena" type="Node3D" unique_id=739590591]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1466399254]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1853723622]
 environment = SubResource("Environment_xvrx0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=638433369]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(0.8839834, 0.39771706, -0.2457532, -0.1288251, 0.7125197, 0.68972445, 0.44941914, -0.5780457, 0.68109155, 0, 11.276684, 0)
 shadow_enabled = true
 
 [node name="floor" type="CSGBox3D" parent="." unique_id=1091187420]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.110209465, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.570837, 0)
 material_override = SubResource("StandardMaterial3D_rvot1")
 use_collision = true
 size = Vector3(35.802734, 0.298, 34.240234)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1596635730]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.6810465, 0)
 material_override = SubResource("StandardMaterial3D_3k3jw")
 use_collision = true
 
@@ -109,4 +113,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.989319, 0.3070109, 4.44912
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.28698, 0.3070109, -6.9488277)
 
 [node name="player" parent="." unique_id=16906795 instance=ExtResource("1_rvot1")]
-transform = Transform3D(0.48, 0, 0, 0, 0.48, 0, 0, 0, 0.48, 2.3751605, 0.15203464, -5.66578)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.3751605, 7.8330812, -5.66578)
