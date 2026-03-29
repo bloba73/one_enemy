@@ -105,7 +105,7 @@ public partial class Player : CharacterBody3D
             targetTilt = -localX * WalkTiltAmount;
         }
 
-        if (Input.IsActionJustPressed("damage"))
+        if (Input.IsActionJustPressed("debug_damage"))
         {
             Health -= 10;
             GD.Print($"Health: {Health}");

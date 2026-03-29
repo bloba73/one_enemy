@@ -34,8 +34,10 @@ albedo_color = Color(0.18067908, 0.3321333, 0.15615672, 1)
 environment = SubResource("Environment_xvrx0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=638433369]
-transform = Transform3D(0.8839834, 0.39771706, -0.2457532, -0.1288251, 0.7125197, 0.68972445, 0.44941914, -0.5780457, 0.68109155, 0, 11.276684, 0)
+transform = Transform3D(0.8839833, 0.397717, -0.2457532, -0.03519097, 0.580768, 0.8133082, 0.46619213, -0.71030253, 0.52738535, 0, 11.276684, 0)
 shadow_enabled = true
+shadow_normal_bias = 3.0
+shadow_blur = 0.8
 
 [node name="floor" type="CSGBox3D" parent="." unique_id=1091187420]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.570837, 0)
