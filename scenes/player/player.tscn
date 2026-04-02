@@ -36,6 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 mouse_filter = 2
 mouse_behavior_recursive = 1
 
@@ -50,11 +51,13 @@ offset_left = -0.40000153
 offset_top = 0.2999878
 offset_right = -0.2000122
 offset_bottom = -6.1035156e-05
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.043137256, 0.043137256, 0.043137256, 0.5137255)
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/ColorRect" unique_id=1684083071]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
